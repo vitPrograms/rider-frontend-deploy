@@ -1,0 +1,299 @@
+@import "../../assets/styles/colors.scss";
+
+.map {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  height: 50vh;
+  .left-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: fit-content;
+    justify-content: space-between;
+    margin-left: 20px;
+    padding-bottom: 85px;
+    padding-top: 100px;
+
+    * {
+      pointer-events: all;
+    }
+    .places-option-list {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      justify-content: start;
+      text-align: start;
+      list-style-type: none;
+      .place-option-el {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background-color: $gray;
+        font-size: 1rem;
+        font-weight: 700;
+        color: $white;
+        padding: 2px 15px;
+        border-radius: 10px;
+        opacity: 0.7;
+        gap: 5px;
+        transition: 0.2s;
+
+        svg {
+          width: 20px;
+          height: 20px;
+          color: $white;
+        }
+
+        &.selected {
+          background-color: $primary;
+          color: $white;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: $white;
+          color: $primary;
+          opacity: 1;
+          transition: 0.2s;
+
+          svg {
+            color: $primary;
+          }
+        }
+      }
+    }
+    .road-type-list {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      .road-type-el {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: $primary;
+        opacity: 0.7;
+        border-radius: 10px;
+        .road-type-btn {
+          img {
+          }
+        }
+      }
+    }
+  }
+  .right-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin-right: 60px;
+    padding-bottom: 85px;
+
+    * {
+      pointer-events: all;
+    }
+    .history {
+      position: relative;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      text-align: end;
+      opacity: 0.7;
+      pointer-events: none;
+      .history-icon {
+        width: 30px;
+        height: 30px;
+        background-color: $primary;
+        color: $white;
+        border-radius: 50%;
+        padding: 3px;
+      }
+    }
+    .bottom {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+    }
+    .login-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      gap: 4px;
+      text-decoration: none;
+      color: inherit;
+      span {
+        font-size: 8pt;
+        font-weight: 700;
+        background-color: $white;
+        border-radius: 5px;
+        padding: 2px 5px;
+      }
+      button {
+        outline: none;
+        border: none;
+        background-color: $primary;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 16pt;
+        font-weight: 700;
+        color: $white;
+        cursor: pointer;
+      }
+    }
+    .new-poi {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $success;
+      padding: 5px;
+      border-radius: 10px;
+      color: $white;
+      overflow: hidden;
+      width: fit-content;
+      transition: 0.2s;
+      cursor: pointer;
+      &:hover {
+        background-color: darken($color: $success, $amount: 2);
+        transition: 0.2s;
+        .text {
+          opacity: 1;
+          width: 100%;
+          transition: 0.2s;
+        }
+      }
+
+      .icon {
+        font-size: 36pt;
+        font-weight: 700;
+        stroke: $white;
+        stroke-width: 2;
+      }
+      .text {
+        text-align: start;
+        font-size: 12pt;
+        font-weight: 700;
+        width: 1px;
+        opacity: 0;
+        transition: 0.2s;
+
+        .line {
+          display: block;
+        }
+      }
+    }
+    .edit-mode-block {
+      position: relative;
+      display: flex;
+      background-color: $white;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+      font-size: 12pt;
+      font-weight: 700;
+      color: $gray;
+      padding: 0;
+      margin: 0;
+      border-radius: 10px;
+      overflow: hidden;
+
+      span {
+        padding: 5px;
+      }
+
+      .exit-edit-mode-btn {
+        padding: 5px;
+        text-decoration: none;
+        color: $white;
+        background-color: $primary;
+      }
+    }
+    .fullscreen-btn {
+      position: relative;
+      display: flex;
+      height: 100%;
+      aspect-ratio: 1/1;
+      button {
+        img {
+        }
+      }
+    }
+  }
+  .left-panel,
+  .right-panel {
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .map {
+    width: 100%;
+    height: 50vh;
+
+    .left-panel {
+      align-items: center;
+      justify-content: start;
+      padding-top: 50px;
+      height: 100%;
+      top: 0 !important;
+      bottom: 0 !important;
+      .places-option-list {
+        max-height: 80%;
+        .place-option-el {
+          gap: 0;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          padding: 2px;
+          margin: 0;
+          .icon {
+            justify-content: center;
+            svg {
+              width: 25px;
+              height: 25px;
+            }
+          }
+          .name span {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    .road-type-list {
+      display: none;
+    }
+
+    .right-panel {
+      .history {
+        visibility: hidden;
+      }
+      .bottom {
+      }
+      .login-btn {
+      }
+      .new-poi {
+        text-decoration: none;
+        .text {
+          opacity: 1;
+          width: 100%;
+        }
+      }
+      .edit-mode-block {
+      }
+    }
+  }
+}

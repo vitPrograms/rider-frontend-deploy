@@ -1,0 +1,46 @@
+@use "sass:color";
+@import "../../assets/styles/colors.scss";
+
+.loading-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  .loading-img {
+    position: relative;
+    width: 20%;
+  }
+  .text {
+    font-weight: 700;
+    font-size: 14pt;
+    font-weight: bold;
+    color: $primary;
+    display: inline-block;
+    animation: textChange 4s infinite;
+  }
+}
+
+@keyframes textChange {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

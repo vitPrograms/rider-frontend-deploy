@@ -1,0 +1,81 @@
+@import "../../assets/styles/colors.scss";
+
+.info-window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 100%; /* Розміщує віконечко під елементом */
+  left: 0;
+  background-color: white;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 200px; /* Ширина віконечка */
+  gap: 5px;
+
+  .top {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+
+    .title {
+      color: $primary;
+    }
+
+    .address {
+      color: $gray;
+    }
+  }
+
+  .content {
+    display: block;
+    width: 100%;
+    height: fit-content;
+    padding: 10px 0;
+    text-align: start;
+  }
+
+  .bottom {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    .author {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: start;
+      gap: 2px;
+
+      .icon {
+        color: $primary;
+      }
+    }
+
+    .feedback {
+      display: flex;
+      flex-direction: row;
+      gap: 2px;
+      color: $gray;
+      width: fit-content;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .icon {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}

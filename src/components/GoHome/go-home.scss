@@ -1,0 +1,20 @@
+@import "../../assets/styles/colors.scss";
+
+.go-back-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 10px 0;
+  font-size: 16pt;
+  font-weight: 700;
+  color: $primary;
+  width: 100%;
+  text-decoration: none;
+
+  .icon {
+    color: $primary;
+    width: 20px;
+    height: 20px;
+  }
+}

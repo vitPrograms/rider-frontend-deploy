@@ -1,0 +1,32 @@
+@import "../../assets/styles/colors.scss";
+
+.place-container {
+  position: relative;
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  .list-types {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    background-color: $white;
+    padding: 5px;
+    border-radius: 10px;
+    border-top-left-radius: 1px;
+    .type-el {
+      color: $gray;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

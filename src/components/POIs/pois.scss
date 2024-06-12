@@ -1,0 +1,592 @@
+@import "../../assets/styles/colors.scss";
+
+// Спільні стилі для блоків
+.common-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-height: 150px;
+  height: fit-content;
+  margin-top: 50px;
+  padding: 20px;
+  gap: 10px;
+
+  .place-el {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    min-height: 150px;
+    height: fit-content;
+    padding: 10px 20px;
+    box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.25);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.2s;
+
+    &:hover {
+      box-shadow: 0 4px 4px 0 rgba($color: $primary, $alpha: 0.25);
+      scale: 1.01;
+    }
+
+    .actions-btn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 15px;
+      height: 15px;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .actions {
+      display: none;
+      list-style: none;
+      position: absolute;
+      right: 10px;
+      top: 25px;
+      width: fit-content;
+      height: fit-content;
+      padding: 10px;
+      margin: 0;
+      text-align: start;
+      background-color: $white;
+      box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.25);
+      border-radius: 10px;
+    }
+
+    .place-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+
+      .main-info {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .type-icon {
+          width: 40px;
+          height: 40px;
+          justify-content: center;
+          align-items: center;
+          color: $primary;
+        }
+
+        .adress-block {
+          display: flex;
+          flex-direction: column;
+          text-align: start;
+
+          .grouped {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            align-items: center;
+            .place-name {
+              font-size: 14pt;
+              font-weight: 700;
+            }
+            .types-list {
+              display: flex;
+              flex-direction: row;
+              gap: 5px;
+              text-decoration: none;
+              list-style: none;
+              align-items: center;
+              li {
+                display: flex;
+                align-items: center;
+                justify-self: center;
+                border-radius: 50%;
+              }
+              .icon {
+                width: 20px;
+                height: 20px;
+                color: $primary;
+              }
+            }
+          }
+
+          .place-address {
+            font-size: 11pt;
+            font-weight: 700;
+            color: $gray;
+          }
+        }
+      }
+
+      .author-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: start;
+        text-align: end;
+
+        .date {
+          font-size: 8pt;
+          color: $gray;
+          font-weight: 700;
+        }
+
+        .author {
+          font-size: 11pt;
+          color: $black;
+          font-weight: 700;
+        }
+
+        .author-icon {
+          width: 40px;
+          height: 40px;
+          color: $primary;
+        }
+      }
+    }
+
+    .place-content {
+      text-align: justify;
+
+      .place-text {
+        font-size: 11pt;
+      }
+    }
+
+    .place-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .feedback {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .likes,
+        .dislikes {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 2px;
+        }
+
+        .like-icon,
+        .dislike-icon {
+          width: 20px;
+          height: 20px;
+          color: $gray;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+
+        .count {
+          font-size: 12pt;
+          font-weight: 700;
+          color: $gray;
+        }
+      }
+
+      .reference-btn {
+        button {
+          background-color: $primary;
+          border: none;
+          color: $white;
+          border-radius: 10px;
+          padding: 5px 15px;
+          cursor: pointer;
+          font-size: 9pt;
+          font-weight: 700;
+          border: 2px solid transparent;
+
+          &:hover {
+            background-color: $white;
+            color: $primary;
+            border: 2px solid $primary;
+            transition: 0.2s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.places-block {
+  @extend .common-block;
+
+  .options {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 20px;
+
+    li {
+      margin: 0;
+      display: inline-block;
+      background-color: $white;
+      color: $primary;
+      padding: 5px 18px;
+      box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.25);
+      border-radius: 25px;
+      transition: 0.2s;
+      font-size: 10pt;
+      font-weight: 700;
+
+      &.active {
+        background-color: $primary;
+        color: $white;
+        transition: 0.2s;
+      }
+
+      label {
+        width: 100%;
+        height: 100%;
+      }
+
+      * {
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  .places-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+  }
+}
+
+// Специфічні стилі для poi-details
+.poi-details {
+  @extend .common-block;
+
+  .comments-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 25px;
+
+    .comment-form {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .comment-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid $primary;
+        border-radius: 10px;
+        padding: 5px;
+
+        .text {
+          position: relative;
+          border: none;
+          width: 100%;
+          height: fit-content;
+
+          min-height: 100px;
+          padding: 10px;
+
+          text-align: justify;
+          resize: none;
+          font-size: 12pt;
+          &::placeholder {
+            color: $gray;
+            font-weight: 500;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+        .feedback {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          justify-content: end;
+          padding: 5px 10px;
+          gap: 15px;
+          color: $gray;
+          cursor: pointer;
+
+          width: 100%;
+
+          .active {
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+      width: 80%;
+
+      .comment-el {
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        padding: 10px;
+        min-height: 150px;
+        justify-content: space-between;
+        align-items: space-between;
+        gap: 10px;
+
+        &:hover {
+          box-shadow: 0 4px 4px 0 rgba($color: $primary, $alpha: 0.25);
+          .bottom .comment-text {
+            color: $black;
+          }
+        }
+
+        .top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 20%;
+
+          .main-info {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            height: 100%;
+            align-items: center;
+            .user-icon {
+              width: 40px;
+              height: 40px;
+              color: $primary;
+            }
+            .author-block {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+              .author {
+                gap: 5px;
+                font-size: 11pt;
+                font-weight: 700;
+                width: fit-content;
+                color: $primary;
+              }
+              .date {
+                font-size: 8pt;
+                color: $gray;
+                font-weight: 700;
+                width: fit-content;
+              }
+            }
+          }
+          .feedback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+
+            &.like {
+              color: $primary;
+            }
+            &.dislike {
+              color: $gray;
+            }
+          }
+        }
+
+        .bottom {
+          position: relative;
+          display: flex;
+          text-align: start;
+          flex: 1;
+
+          .comment-text {
+            font-size: 11pt;
+            font-weight: 400;
+            height: 100%;
+            width: 100%;
+            color: $gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+.poi-form {
+  @extend .common-block;
+  .place-el {
+    &:hover {
+      scale: none;
+    }
+  }
+
+  height: fit-content;
+
+  .main-info {
+    flex: 1;
+
+    .type-select {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      width: fit-content;
+      height: 40px;
+      border: none;
+    }
+
+    .MuiSelect-select.MuiSelect-select {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      width: fit-content;
+      justify-content: center;
+      align-items: center;
+      color: $primary;
+      font-weight: 700;
+      border-radius: 4px;
+    }
+
+    .type-icon {
+      color: $primary;
+    }
+  }
+  .adress-block {
+    width: 100%;
+    max-width: 70%;
+    .place-name {
+      font-weight: 700;
+      font-size: 14pt;
+    }
+  }
+  .place-content {
+    height: fit-content;
+  }
+
+  .place-text {
+    position: relative;
+    border: none;
+    width: 100%;
+    height: fit-content;
+
+    min-height: 100px;
+
+    text-align: justify;
+    resize: none;
+    &::placeholder {
+      color: $gray;
+      font-weight: 500;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .place-types {
+    button {
+      color: $primary;
+    }
+    .icon-type {
+      color: $primary;
+      &:hover {
+        color: $gray;
+        scale: 0.9;
+        transition: 0.2s;
+      }
+    }
+    display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  .common-block {
+    width: 100%;
+  }
+  .place-el {
+    .place-head {
+      .main-info {
+        .type-icon {
+          width: 35px !important;
+          height: 35px !important;
+        }
+        .adress-block {
+          .place-name {
+            font-size: 12pt !important;
+          }
+
+          .place-address {
+            font-size: 9pt !important;
+          }
+        }
+      }
+      .author-block {
+        .date {
+        }
+
+        .author {
+        }
+
+        .author-icon {
+          width: 35px !important;
+          height: 35px !important;
+        }
+      }
+    }
+
+    .place-footer {
+      .feedback {
+        .like-icon,
+        .dislike-icon {
+          width: 15px !important;
+          height: 15px !important;
+
+          &:hover {
+            color: $primary;
+            box-shadow: inset 0 2px 4px 0 rgba($color: #000000, $alpha: 0.25);
+          }
+        }
+
+        .count {
+          font-size: 10pt !important;
+        }
+      }
+
+      .reference-btn {
+        button {
+          background-color: $primary;
+          border: none;
+          color: $white;
+          border-radius: 10px;
+          padding: 5px 15px;
+          cursor: pointer;
+          font-size: 8pt !important;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
